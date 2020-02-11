@@ -1,0 +1,554 @@
+tanvir@BS-107:/mnt/c/Users/BS107$ az login
+You have logged in. Now let us find all the subscriptions to which you have access...
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "7e862db6-4127-4495-a522-d82071ca3931",
+    "isDefault": true,
+    "name": "Pay As You Go",
+    "state": "Enabled",
+    "tenantId": "0d357441-0455-4000-8899-db665d0a6e15",
+    "user": {
+      "name": "tanvirhassannies@outlook.com",
+      "type": "user"
+    }
+  }
+]
+tanvir@BS-107:/mnt/c/Users/BS107$ az acr create --resource-group tanvir14 --name tanvir14 --sku Basic
+{
+  "adminUserEnabled": false,
+  "creationDate": "2020-02-11T10:20:42.766950+00:00",
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/registries/tanvir14",
+  "location": "eastus",
+  "loginServer": "tanvir14.azurecr.io",
+  "name": "tanvir14",
+  "networkRuleSet": null,
+  "policies": {
+    "quarantinePolicy": {
+      "status": "disabled"
+    },
+    "retentionPolicy": {
+      "days": 7,
+      "lastUpdatedTime": "2020-02-11T10:20:43.798197+00:00",
+      "status": "disabled"
+    },
+    "trustPolicy": {
+      "status": "disabled",
+      "type": "Notary"
+    }
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "tanvir14",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+tanvir@BS-107:/mnt/c/Users/BS107$ az ad sp create-for-rbac --skip-assignment
+{
+  "appId": "73cc3065-5fab-42bf-bad3-2899247e9c44",
+  "displayName": "azure-cli-2020-02-11-10-21-02",
+  "name": "http://azure-cli-2020-02-11-10-21-02",
+  "password": "e874f3e2-2d67-4bd9-a5b2-a4f1a672ddf1",
+  "tenant": "0d357441-0455-4000-8899-db665d0a6e15"
+}
+tanvir@BS-107:/mnt/c/Users/BS107$ az acr show --resource-group tanvir --name tanvir --query "id" --output tsv
+Resource group 'tanvir' could not be found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az acr show --resource-group tanvir14 --name tanvir --query "id" --output tsv
+The Resource 'Microsoft.ContainerRegistry/registries/tanvir' under resource group 'tanvir14' was not found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az acr show --resource-group tanvir14 --name tanvir14 --query "id" --output tsv       /subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/registries/tanvir14
+tanvir@BS-107:/mnt/c/Users/BS107$ az role assignment create --assignee 73cc3065-5fab-42bf-bad3-2899247e9c44 --scope /subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/registries/tanvir14 --role acrpull
+{
+  "canDelegate": null,
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/registries/tanvir14/providers/Microsoft.Authorization/roleAssignments/5bd4d28f-09d7-4666-a835-afaeac078894",
+  "name": "5bd4d28f-09d7-4666-a835-afaeac078894",
+  "principalId": "14624856-63b7-4139-a2ae-5e4ffa2231ec",
+  "principalType": "ServicePrincipal",
+  "resourceGroup": "tanvir14",
+  "roleDefinitionId": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d",
+  "scope": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/registries/tanvir14",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks get-credentials -g tanvir14 -n tanvir14
+The Resource 'Microsoft.ContainerService/managedClusters/tanvir14' under resource group 'tanvir14' was not found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az login
+You have logged in. Now let us find all the subscriptions to which you have access...
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "7e862db6-4127-4495-a522-d82071ca3931",
+    "isDefault": true,
+    "name": "Pay As You Go",
+    "state": "Enabled",
+    "tenantId": "0d357441-0455-4000-8899-db665d0a6e15",
+    "user": {
+      "name": "tanvirhassannies@outlook.com",
+      "type": "user"
+    }
+  }
+]
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks get-credentials -g tanvir14 -n tanvir14
+The Resource 'Microsoft.ContainerService/managedClusters/tanvir14' under resource group 'tanvir14' was not found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks get-credentials -g tanvir14 -n kube
+The Resource 'Microsoft.ContainerService/managedClusters/kube' under resource group 'tanvir14' was not found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks get-credentials -g tanvir14 -n kube-test
+The Resource 'Microsoft.ContainerService/managedClusters/kube-test' under resource group 'tanvir14' was not found.
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks get-credentials -g tanvir14 -n kb-test
+A different object named kb-test already exists in your kubeconfig file.
+Overwrite? (y/n): y
+A different object named kb-test already exists in your kubeconfig file.
+Overwrite? (y/n): y
+Merged "kb-test" as current context in /home/tanvir/.kube/config
+tanvir@BS-107:/mnt/c/Users/BS107$ az aks browse -g tanvir14 -n kb-test
+Merged "kb-test" as current context in /tmp/tmp06ce63be
+Proxy running on http://127.0.0.1:8001/
+Press CTRL+C to close the tunnel...
+^Ctanvir@BS-107:/mnt/c/Users/BS107$ kubectl apply -f .\kube-dashboard-access.yaml
+error: the path ".kube-dashboard-access.yaml" does not exist
+tanvir@BS-107:/mnt/c/Users/BS107$ ll
+ls: cannot read symbolic link 'Application Data': Permission denied
+ls: cannot read symbolic link 'Cookies': Permission denied
+ls: cannot read symbolic link 'Local Settings': Permission denied
+ls: cannot read symbolic link 'My Documents': Permission denied
+ls: cannot read symbolic link 'NetHood': Permission denied
+ls: cannot read symbolic link 'PrintHood': Permission denied
+ls: cannot read symbolic link 'Recent': Permission denied
+ls: cannot read symbolic link 'SendTo': Permission denied
+ls: cannot read symbolic link 'Start Menu': Permission denied
+ls: cannot read symbolic link 'Templates': Permission denied
+total 13492
+drwxrwxrwx 1 tanvir tanvir     512 Jan 18 17:41  ./
+dr-xr-xr-x 1 tanvir tanvir     512 Oct 17 18:40  ../
+-rwxrwxrwx 1 tanvir tanvir    3312 Feb 11 15:07  .bash_history*
+drwxrwxrwx 1 tanvir tanvir     512 Oct 18 15:49  .config/
+drwxrwxrwx 1 tanvir tanvir     512 Jan 23 14:16  .docker/
+drwxrwxrwx 1 tanvir tanvir     512 Jan 18 17:43  .dotnet/
+-rwxrwxrwx 1 tanvir tanvir     182 Oct 24 15:50  .gitconfig*
+drwxrwxrwx 1 tanvir tanvir     512 Jan  7 10:35  .ipython/
+drwxrwxrwx 1 tanvir tanvir     512 Jan  7 15:49  .jupyter/
+drwxrwxrwx 1 tanvir tanvir     512 Jan  7 11:05  .matplotlib/
+drwxrwxrwx 1 tanvir tanvir     512 Jan 18 17:33  .nuget/
+drwxrwxrwx 1 tanvir tanvir     512 Nov 22 15:11  .templateengine/
+-rwxrwxrwx 1 tanvir tanvir    1443 Nov  1 17:51  .viminfo*
+drwxrwxrwx 1 tanvir tanvir     512 Jan 16 22:00  .vscode/
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22 '3D Objects'/
+drwxrwxrwx 1 tanvir tanvir     512 Jan  7 10:10  Anaconda3/
+drwxrwxrwx 1 tanvir tanvir     512 Oct 18 01:22  AppData/
+lrwxrwxrwx 1 tanvir tanvir      34 Oct 18 01:22 'Application Data'
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Contacts/
+lrwxrwxrwx 1 tanvir tanvir      62 Oct 18 01:22  Cookies
+drwxrwxrwx 1 tanvir tanvir     512 Feb 10 21:19  Desktop/
+drwxrwxrwx 1 tanvir tanvir     512 Feb  7 14:37  Documents/
+drwxrwxrwx 1 tanvir tanvir     512 Feb 11 14:52  Downloads/
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Favorites/
+drwxrwxrwx 1 tanvir tanvir     512 Feb 11 14:52 'Google Drive'/
+drwxrwxrwx 1 tanvir tanvir     512 Feb 11 14:51  IntelGraphicsProfiles/
+drwxrwxrwx 1 tanvir tanvir     512 Jan 15 15:43  Links/
+lrwxrwxrwx 1 tanvir tanvir      32 Oct 18 01:22 'Local Settings'
+drwxrwxrwx 1 tanvir tanvir     512 Oct 21 17:29  MicrosoftEdgeBackups/
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Music/
+lrwxrwxrwx 1 tanvir tanvir      28 Oct 18 01:22 'My Documents'
+-rwxrwxrwx 1 tanvir tanvir 8650752 Feb 10 22:33  NTUSER.DAT*
+-rwxrwxrwx 1 tanvir tanvir   65536 Oct 18 01:23  NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TM.blf*
+-rwxrwxrwx 1 tanvir tanvir  524288 Oct 18 01:22  NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000001.regtrans-ms*
+-rwxrwxrwx 1 tanvir tanvir  524288 Oct 18 01:22  NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000002.regtrans-ms*
+lrwxrwxrwx 1 tanvir tanvir      70 Oct 18 01:22  NetHood
+drwxrwxrwx 1 tanvir tanvir     512 Feb 10 16:07  OneDrive/
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Pictures/
+lrwxrwxrwx 1 tanvir tanvir      70 Oct 18 01:22  PrintHood
+lrwxrwxrwx 1 tanvir tanvir      59 Oct 18 01:22  Recent
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22 'Saved Games'/
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Searches/
+lrwxrwxrwx 1 tanvir tanvir      59 Oct 18 01:22  SendTo
+lrwxrwxrwx 1 tanvir tanvir      63 Oct 18 01:22 'Start Menu'
+lrwxrwxrwx 1 tanvir tanvir      62 Oct 18 01:22  Templates
+drwxrwxrwx 1 tanvir tanvir     512 Dec 17 14:22  Videos/
+-rwxrwxrwx 1 tanvir tanvir 2141184 Oct 18 01:22  ntuser.dat.LOG1*
+-rwxrwxrwx 1 tanvir tanvir 1900544 Oct 18 01:22  ntuser.dat.LOG2*
+-rwxrwxrwx 1 tanvir tanvir      20 Oct 18 01:22  ntuser.ini*
+drwxrwxrwx 1 tanvir tanvir     512 Jan  7 11:05  seaborn-data/
+drwxrwxrwx 1 tanvir tanvir     512 Oct 17 20:34  source/
+tanvir@BS-107:/mnt/c/Users/BS107$ cd Desktop/Kubernets-Workshop-3
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3$ cd Desktop/Kubernets-Workshop-3/Kube
+-bash: cd: Desktop/Kubernets-Workshop-3/Kube: No such file or directory
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3$ cd Kube
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f .\kube-dashboard-access.yaml
+error: the path ".kube-dashboard-access.yaml" does not exist
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ cd ..
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3$ kubectl apply -f .\kube-dashboard-access.yaml
+error: the path ".kube-dashboard-access.yaml" does not exist
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3$ cd Kube
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f kube-dashboard-access.yaml
+clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+"stable" has been added to your repositories
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "azure-samples" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl create ns ingress-basic
+namespace/ingress-basic created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm install stable/nginx-ingress --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --namespace ingress-basic --generate-name
+NAME: nginx-ingress-1581421186
+LAST DEPLOYED: Tue Feb 11 17:39:52 2020
+NAMESPACE: ingress-basic
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The nginx-ingress controller has been installed.
+It may take a few minutes for the LoadBalancer IP to be available.
+You can watch the status by running 'kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-1581421186-controller'
+
+An example Ingress that makes use of the controller:
+
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    name: example
+    namespace: foo
+  spec:
+    rules:
+      - host: www.example.com
+        http:
+          paths:
+            - backend:
+                serviceName: exampleService
+                servicePort: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    tls:
+        - hosts:
+            - www.example.com
+          secretName: example-tls
+
+If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: example-tls
+    namespace: foo
+  data:
+    tls.crt: <base64 encoded cert>
+    tls.key: <base64 encoded key>
+  type: kubernetes.io/tls
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+nginx-ingress-1581421186-controller        LoadBalancer   10.0.174.172   <pending>     80:32739/TCP,443:30578/TCP   19s nginx-ingress-1581421186-default-backend   ClusterIP      10.0.126.22    <none>        80/TCP                       19s tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGEnginx-ingress-1581421186-controller        LoadBalancer   10.0.174.172   40.88.48.183   80:32739/TCP,443:30578/TCP   34snginx-ingress-1581421186-default-backend   ClusterIP      10.0.126.22    <none>         80/TCP                       34stanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ IP='40.88.48.183'
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ DNSNAME='tanvir14'
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+{
+  "ddosSettings": null,
+  "dnsSettings": {
+    "domainNameLabel": "tanvir14",
+    "fqdn": "tanvir14.eastus.cloudapp.azure.com",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"d79b4eec-4f11-446e-94fb-4403237d6861\"",
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/mc_tanvir14_kb-test_eastus/providers/Microsoft.Network/publicIPAddresses/kubernetes-a3bc095bc4cc311eaaa998a60f1458b9",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.88.48.183",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/mc_tanvir14_kb-test_eastus/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/a3bc095bc4cc311eaaa998a60f1458b9",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "mc_tanvir14_kb-test_eastus",
+    "subnet": null
+  },
+  "ipTags": [],
+  "location": "eastus",
+  "name": "kubernetes-a3bc095bc4cc311eaaa998a60f1458b9",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Static",
+  "publicIpPrefix": null,
+  "resourceGroup": "mc_tanvir14_kb-test_eastus",
+  "resourceGuid": "58a1d6e3-1fde-4cdd-8349-55d7649c654c",
+  "sku": {
+    "name": "Standard"
+  },
+  "tags": {
+    "service": "ingress-basic/nginx-ingress-1581421186-controller"
+  },
+  "type": "Microsoft.Network/publicIPAddresses",
+  "zones": null
+}
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+"azure-samples" has been added to your repositories
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "azure-samples" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm install azure-samples/aks-helloworld --namespace ingress-basic --generate-name
+NAME: aks-helloworld-1581421348
+LAST DEPLOYED: Tue Feb 11 17:42:34 2020
+NAMESPACE: ingress-basic
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm install azure-samples/aks-helloworld --namespace ingress-basic  --generate-name --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+NAME: aks-helloworld-1581421374
+LAST DEPLOYED: Tue Feb 11 17:42:58 2020
+NAMESPACE: ingress-basic
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl create namespace cert-manager
+namespace/cert-manager created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.11.0/cert-manager.yaml --validate=false
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+namespace/cert-manager configured
+serviceaccount/cert-manager-cainjector created
+serviceaccount/cert-manager created
+serviceaccount/cert-manager-webhook created
+clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector created
+role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:auth-delegator created
+rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:webhook-authentication-reader created
+clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:webhook-requester created
+role.rbac.authorization.k8s.io/cert-manager:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-leaderelection created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrole.rbac.authorization.k8s.io/cert-manager-view created
+clusterrole.rbac.authorization.k8s.io/cert-manager-edit created
+service/cert-manager created
+service/cert-manager-webhook created
+deployment.apps/cert-manager-cainjector created
+deployment.apps/cert-manager created
+deployment.apps/cert-manager-webhook created
+apiservice.apiregistration.k8s.io/v1beta1.webhook.cert-manager.io created
+mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get all -n cert-manager
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cert-manager-cainjector-74bb68d67c-sk4z9   1/1     Running   0          40s
+pod/cert-manager-f7f8bf74d-wjdhm               1/1     Running   0          39s
+pod/cert-manager-webhook-645b8bdb7-6ms6j       1/1     Running   0          38s
+
+NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager           ClusterIP   10.0.78.172   <none>        9402/TCP   43s
+service/cert-manager-webhook   ClusterIP   10.0.195.70   <none>        443/TCP    42s
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cert-manager              1/1     1            1           40s
+deployment.apps/cert-manager-cainjector   1/1     1            1           41s
+deployment.apps/cert-manager-webhook      1/1     1            1           39s
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cert-manager-cainjector-74bb68d67c   1         1         1       42s
+replicaset.apps/cert-manager-f7f8bf74d               1         1         1       41s
+replicaset.apps/cert-manager-webhook-645b8bdb7       1         1         1       40s
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ ^C
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ ^C
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get all -n cert-manager
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cert-manager-cainjector-74bb68d67c-sk4z9   1/1     Running   0          64m
+pod/cert-manager-f7f8bf74d-wjdhm               1/1     Running   0          64m
+pod/cert-manager-webhook-645b8bdb7-6ms6j       1/1     Running   0          64m
+
+NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager           ClusterIP   10.0.78.172   <none>        9402/TCP   64m
+service/cert-manager-webhook   ClusterIP   10.0.195.70   <none>        443/TCP    64m
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cert-manager              1/1     1            1           64m
+deployment.apps/cert-manager-cainjector   1/1     1            1           64m
+deployment.apps/cert-manager-webhook      1/1     1            1           64m
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cert-manager-cainjector-74bb68d67c   1         1         1       64m
+replicaset.apps/cert-manager-f7f8bf74d               1         1         1       64m
+replicaset.apps/cert-manager-webhook-645b8bdb7       1         1         1       64m
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ ^C
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress configured
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+clusterissuer.cert-manager.io/letsencrypt-staging created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get all -n cert-manager
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cert-manager-cainjector-74bb68d67c-sk4z9   1/1     Running   0          74m
+pod/cert-manager-f7f8bf74d-wjdhm               1/1     Running   0          74m
+pod/cert-manager-webhook-645b8bdb7-6ms6j       1/1     Running   0          74m
+
+NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager           ClusterIP   10.0.78.172   <none>        9402/TCP   74m
+service/cert-manager-webhook   ClusterIP   10.0.195.70   <none>        443/TCP    74m
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cert-manager              1/1     1            1           74m
+deployment.apps/cert-manager-cainjector   1/1     1            1           74m
+deployment.apps/cert-manager-webhook      1/1     1            1           74m
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cert-manager-cainjector-74bb68d67c   1         1         1       74m
+replicaset.apps/cert-manager-f7f8bf74d               1         1         1       74m
+replicaset.apps/cert-manager-webhook-645b8bdb7       1         1         1       74m
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f certificates.yaml
+certificate.cert-manager.io/sufian-eastus-cloudapp-azure-com-cert-staging created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f certificates.yaml
+certificate.cert-manager.io/tanvir14-eastus-cloudapp-azure-com-cert-staging created
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+clusterissuer.cert-manager.io/letsencrypt-staging unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress configured
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+clusterissuer.cert-manager.io/letsencrypt-staging unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f certificates.yaml
+certificate.cert-manager.io/tanvir14-eastus-cloudapp-azure-com-cert-staging configured
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get all -n cert-manager
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cert-manager-cainjector-74bb68d67c-sk4z9   1/1     Running   0          79m
+pod/cert-manager-f7f8bf74d-wjdhm               1/1     Running   0          79m
+pod/cert-manager-webhook-645b8bdb7-6ms6j       1/1     Running   0          79m
+
+NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager           ClusterIP   10.0.78.172   <none>        9402/TCP   79m
+service/cert-manager-webhook   ClusterIP   10.0.195.70   <none>        443/TCP    79m
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cert-manager              1/1     1            1           79m
+deployment.apps/cert-manager-cainjector   1/1     1            1           79m
+deployment.apps/cert-manager-webhook      1/1     1            1           79m
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cert-manager-cainjector-74bb68d67c   1         1         1       79m
+replicaset.apps/cert-manager-f7f8bf74d               1         1         1       79m
+replicaset.apps/cert-manager-webhook-645b8bdb7       1         1         1       79m
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get certificates -n ingress-basic
+NAME                                              READY   SECRET                                       AGE
+sufian-eastus-cloudapp-azure-com-cert-staging     False   sufian-eastus-cloudapp-azure-com-staging     6m13s
+tanvir14-eastus-cloudapp-azure-com-cert-staging   False   tanvir14-eastus-cloudapp-azure-com-staging   5m10s
+tanvir14-eastus-cloudapp-azure-com-staging        False   tanvir14-eastus-cloudapp-azure-com-staging   3m17s
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get secret -n ingress-basic
+NAME                                              TYPE                                  DATA   AGE
+default-token-mb7xm                               kubernetes.io/service-account-token   3      90m
+nginx-ingress-1581421186-backend-token-xfcds      kubernetes.io/service-account-token   3      89m
+nginx-ingress-1581421186-token-fps54              kubernetes.io/service-account-token   3      89m
+sh.helm.release.v1.aks-helloworld-1581421348.v1   helm.sh/release.v1                    1      86m
+sh.helm.release.v1.aks-helloworld-1581421374.v1   helm.sh/release.v1                    1      86m
+sh.helm.release.v1.nginx-ingress-1581421186.v1    helm.sh/release.v1                    1      89m
+sufian-eastus-cloudapp-azure-com-staging          kubernetes.io/tls                     3      81m
+tanvir14-eastus-cloudapp-azure-com-staging        kubernetes.io/tls                     3      5m44s
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "azure-samples" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ helm install azure-samples/aks-helloworld --namespace ingress-basic --generate-name
+Error: rendered manifests contain a resource that already exists. Unable to continue with install: existing resource conflict: kind: Service, namespace: ingress-basic, name: aks-helloworld
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.11.0/cert-manager.yaml --validate=false
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io configured
+namespace/cert-manager unchanged
+serviceaccount/cert-manager-cainjector unchanged
+serviceaccount/cert-manager unchanged
+serviceaccount/cert-manager-webhook unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector unchanged
+role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection unchanged
+rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection configured
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:auth-delegator configured
+rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:webhook-authentication-reader configured
+clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:webhook-requester unchanged
+role.rbac.authorization.k8s.io/cert-manager:leaderelection unchanged
+rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection configured
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-leaderelection unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges unchanged
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-view unchanged
+clusterrole.rbac.authorization.k8s.io/cert-manager-edit unchanged
+service/cert-manager unchanged
+service/cert-manager-webhook unchanged
+deployment.apps/cert-manager-cainjector configured
+deployment.apps/cert-manager unchanged
+deployment.apps/cert-manager-webhook configured
+apiservice.apiregistration.k8s.io/v1beta1.webhook.cert-manager.io unchanged
+mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook configured
+validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook configured
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl get all -n cert-manager
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cert-manager-cainjector-74bb68d67c-sk4z9   1/1     Running   0          85m
+pod/cert-manager-f7f8bf74d-wjdhm               1/1     Running   0          85m
+pod/cert-manager-webhook-645b8bdb7-6ms6j       1/1     Running   0          85m
+
+NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+service/cert-manager           ClusterIP   10.0.78.172   <none>        9402/TCP   85m
+service/cert-manager-webhook   ClusterIP   10.0.195.70   <none>        443/TCP    85m
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cert-manager              1/1     1            1           85m
+deployment.apps/cert-manager-cainjector   1/1     1            1           85m
+deployment.apps/cert-manager-webhook      1/1     1            1           85m
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cert-manager-cainjector-74bb68d67c   1         1         1       85m
+replicaset.apps/cert-manager-f7f8bf74d               1         1         1       85m
+replicaset.apps/cert-manager-webhook-645b8bdb7       1         1         1       85m
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+clusterissuer.cert-manager.io/letsencrypt-staging unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f certificates.yaml
+certificate.cert-manager.io/tanvir14-eastus-cloudapp-azure-com-cert-staging configured
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress unchanged
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl delete namespace ingress-basic
+namespace "ingress-basic" deleted
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$ kubectl delete namespace cert-manager
+namespace "cert-manager" deleted
+
+^C
+tanvir@BS-107:/mnt/c/Users/BS107/Desktop/Kubernets-Workshop-3/Kube$
