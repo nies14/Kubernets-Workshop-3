@@ -25,4 +25,4 @@ Day 3 (25.01.2020)
 - Pricing aspects for clients
 - Final exam
 
-# test
+# test 2
