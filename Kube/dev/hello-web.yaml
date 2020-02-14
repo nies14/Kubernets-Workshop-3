@@ -77,13 +77,13 @@ spec:
   #  - hosts:
   #- app-staging.informatiq.no
   #    secretName: app-staging-informatiq-no-cert-prod
-  rules:
-    - host: tanvir14.eastus2.cloudapp.azure.com
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName:  aks-hellonode-service
-              servicePort: 80
+ rules:
+  - host: tanvir14.eastus2.cloudapp.azure.com
+    http:
+      paths:           
+      - path: /api/node
+        backend:
+          serviceName: aks-hellonode-service
+          servicePort: 80
 
 
