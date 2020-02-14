@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name:  aks-hellonode
-          image: tanvir14.azurecr.io/ aks-hellonode:#{Release.Artifacts.aks.BuildNumber}#
+          image: tanvir14.azurecr.io/aks-hellonode:#{Release.Artifacts.aks.BuildNumber}#
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Development"
