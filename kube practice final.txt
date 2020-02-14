@@ -1,0 +1,583 @@
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az login
+You have logged in. Now let us find all the subscriptions to which you have access...
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "7e862db6-4127-4495-a522-d82071ca3931",
+    "isDefault": true,
+    "name": "Pay As You Go",
+    "state": "Enabled",
+    "tenantId": "0d357441-0455-4000-8899-db665d0a6e15",
+    "user": {
+      "name": "tanvirhassannies@outlook.com",
+      "type": "user"
+    }
+  }
+]
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr create --resource-group tanvir --name tanvir --sku Basic
+error retrieving default location: Resource group 'tanvir' could not be found.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr create --resource-group tanvir14 --name tanvir14 --sku Basic
+{
+  "adminUserEnabled": false,
+  "creationDate": "2020-02-14T20:19:35.129507+00:00",
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegis                                                try/registries/tanvir14",
+  "location": "eastus",
+  "loginServer": "tanvir14.azurecr.io",
+  "name": "tanvir14",
+  "networkRuleSet": null,
+  "policies": {
+    "quarantinePolicy": {
+      "status": "disabled"
+    },
+    "retentionPolicy": {
+      "days": 7,
+      "lastUpdatedTime": "2020-02-14T20:19:35.801351+00:00",
+      "status": "disabled"
+    },
+    "trustPolicy": {
+      "status": "disabled",
+      "type": "Notary"
+    }
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "tanvir14",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az ad sp create-for-rbac --skip-assignment
+{
+  "appId": "e8dc8c1f-0360-423e-8776-66614d55fdda",
+  "displayName": "azure-cli-2020-02-14-20-19-55",
+  "name": "http://azure-cli-2020-02-14-20-19-55",
+  "password": "45fa3671-312a-40a8-be88-3544bca447c9",
+  "tenant": "0d357441-0455-4000-8899-db665d0a6e15"
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr show --resource-group tanvir14 --name tanvir14 --query "id" --output t                                                sv
+The Resource 'Microsoft.ContainerRegistry/registries/tanvir14' under resource group 'tanvir14' was not found.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr show --resource-group tanvir14 --name tanvir14 --query "id" --output t                                                sv
+The Resource 'Microsoft.ContainerRegistry/registries/tanvir14' under resource group 'tanvir14' was not found.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az login
+You have logged in. Now let us find all the subscriptions to which you have access...
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "7e862db6-4127-4495-a522-d82071ca3931",
+    "isDefault": true,
+    "name": "Pay As You Go",
+    "state": "Enabled",
+    "tenantId": "0d357441-0455-4000-8899-db665d0a6e15",
+    "user": {
+      "name": "tanvirhassannies@outlook.com",
+      "type": "user"
+    }
+  }
+]
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr show --resource-group tanvir14 --name tanvir14 --query "id" --output t                                                sv
+The Resource 'Microsoft.ContainerRegistry/registries/tanvir14' under resource group 'tanvir14' was not found.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr create --resource-group tanvir14 --name tanvir14 --sku Basic
+{
+  "adminUserEnabled": false,
+  "creationDate": "2020-02-14T20:28:47.260263+00:00",
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegis                                                try/registries/tanvir14",
+  "location": "eastus",
+  "loginServer": "tanvir14.azurecr.io",
+  "name": "tanvir14",
+  "networkRuleSet": null,
+  "policies": {
+    "quarantinePolicy": {
+      "status": "disabled"
+    },
+    "retentionPolicy": {
+      "days": 7,
+      "lastUpdatedTime": "2020-02-14T20:28:47.848941+00:00",
+      "status": "disabled"
+    },
+    "trustPolicy": {
+      "status": "disabled",
+      "type": "Notary"
+    }
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "tanvir14",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "storageAccount": null,
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az ad sp create-for-rbac --skip-assignment
+{
+  "appId": "5de0fb06-e325-4d28-8142-b4816a096b0e",
+  "displayName": "azure-cli-2020-02-14-20-29-18",
+  "name": "http://azure-cli-2020-02-14-20-29-18",
+  "password": "3d120f05-1dd6-42c5-8fda-9ac2e5d98619",
+  "tenant": "0d357441-0455-4000-8899-db665d0a6e15"
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az acr show --resource-group tanvir14 --name tanvir14 --query "id" --output t                                                sv
+/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/regis                                                tries/tanvir14
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az role assignment create --assignee 5de0fb06-e325-4d28-8142-b4816a096b0e --s                                                cope /subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegistry/                                                registries/tanvir14 --role acrpull
+{
+  "canDelegate": null,
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRegis                                                try/registries/tanvir14/providers/Microsoft.Authorization/roleAssignments/b4d6f32e-b01f-4dcb-9eec-9d684696df13",                                                         "name": "b4d6f32e-b01f-4dcb-9eec-9d684696df13",
+  "principalId": "1810397c-99ea-4f08-a6e8-c2ee8b82e8af",
+  "principalType": "ServicePrincipal",
+  "resourceGroup": "tanvir14",
+  "roleDefinitionId": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/providers/Microsoft.Authorization/roleDefini                                                tions/7f951dda-4ed3-4680-a7ca-43fe172d538d",
+  "scope": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.ContainerRe                                                gistry/registries/tanvir14",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az aks get-credentials -g tanvir14 -n kb-test
+A different object named kb-test already exists in your kubeconfig file.
+Overwrite? (y/n): y
+A different object named clusterUser_tanvir14_kb-test already exists in your kubeconfig file.
+Overwrite? (y/n): y
+Merged "kb-test" as current context in /home/nies14/.kube/config
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az aks browse -g tanvir14 -n kb-test
+Merged "kb-test" as current context in /tmp/tmpm1o6rkhw
+Proxy running on http://127.0.0.1:8001/
+Press CTRL+C to close the tunnel...
+^Cnies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ cd Desktop/
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop$ cd Kubernet
+Kubernetes-Workshop/  Kubernets-Workshop-3/
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop$ cd Kubernets-Workshop-3/AKS/
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/AKS$ cd ..
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3$ cd Kube/
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f .\kube-dashboard-access.ya                                                ml
+error: the path ".kube-dashboard-access.yaml" does not exist
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f kube-dashboard-access.yaml                                                
+clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ az aks browse -g tanvir14 -n kb-test
+Merged "kb-test" as current context in /tmp/tmpn5sad738
+Proxy running on http://127.0.0.1:8001/
+Press CTRL+C to close the tunnel...
+^Cnies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm repo add stable https://kubernetes-cha                                                rts.storage.googleapis.com/
+"stable" has been added to your repositories
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "azure-samples" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl create ns ingress-basic
+namespace/ingress-basic created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm install stable/nginx-ingress --set con                                                troller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector.                                                "beta\.kubernetes\.io/os"=linux --namespace ingress-basic --generate-name
+NAME: nginx-ingress-1581713777
+LAST DEPLOYED: Sat Feb 15 02:56:22 2020
+NAMESPACE: ingress-basic
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The nginx-ingress controller has been installed.
+It may take a few minutes for the LoadBalancer IP to be available.
+You can watch the status by running 'kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-1581713777                                                -controller'
+
+An example Ingress that makes use of the controller:
+
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    name: example
+    namespace: foo
+  spec:
+    rules:
+      - host: www.example.com
+        http:
+          paths:
+            - backend:
+                serviceName: exampleService
+                servicePort: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    tls:
+        - hosts:
+            - www.example.com
+          secretName: example-tls
+
+If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: example-tls
+    namespace: foo
+  data:
+    tls.crt: <base64 encoded cert>
+    tls.key: <base64 encoded key>
+  type: kubernetes.io/tls
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl get service -l app=nginx-ingress --                                                namespace ingress-basic
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      A                                                GE
+nginx-ingress-1581713777-controller        LoadBalancer   10.0.218.144   40.71.236.218   80:30953/TCP,443:30715/TCP   4                                                4s
+nginx-ingress-1581713777-default-backend   ClusterIP      10.0.129.16    <none>          80/TCP                       4                                                4s
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm list -n ingress-basic
+NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS        C                                                HART                    APP VERSION
+nginx-ingress-1581713777        ingress-basic   1               2020-02-15 02:56:22.2238887 +0600 +06   deployed      n                                                ginx-ingress-1.30.2     0.28.0
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ IP='40.71.236.218'
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ DNSNAME='tanvir14'
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ $PUBLICIPID=$(az network public-ip list --q                                                uery "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+-bash: =/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/mc_tanvir14_kb-test_eastus/providers/Microso                                                ft.Network/publicIPAddresses/kubernetes-a77f026af4f6c11eabaf636041585426: No such file or directory
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ PUBLICIPID=$(az network public-ip list --qu                                                ery "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ az network public-ip update --ids $PUBLICIP                                                ID --dns-name $DNSNAME
+{
+  "ddosSettings": null,
+  "dnsSettings": {
+    "domainNameLabel": "tanvir14",
+    "fqdn": "tanvir14.eastus.cloudapp.azure.com",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"4d72f249-b459-4e14-bcc0-e303cda4b91f\"",
+  "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/mc_tanvir14_kb-test_eastus/providers/Micros                                                oft.Network/publicIPAddresses/kubernetes-a77f026af4f6c11eabaf636041585426",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.71.236.218",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/mc_tanvir14_kb-test_eastus/providers/Micr                                                osoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/a77f026af4f6c11eabaf636041585426",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "mc_tanvir14_kb-test_eastus",
+    "subnet": null
+  },
+  "ipTags": [],
+  "location": "eastus",
+  "name": "kubernetes-a77f026af4f6c11eabaf636041585426",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Static",
+  "publicIpPrefix": null,
+  "resourceGroup": "mc_tanvir14_kb-test_eastus",
+  "resourceGuid": "264140b9-39c0-4628-a814-65c6be5144ab",
+  "sku": {
+    "name": "Standard"
+  },
+  "tags": {
+    "service": "ingress-basic/nginx-ingress-1581713777-controller"
+  },
+  "type": "Microsoft.Network/publicIPAddresses",
+  "zones": null
+}
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm repo add azure-samples https://azure-s                                                amples.github.io/helm-charts/
+"azure-samples" has been added to your repositories
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "azure-samples" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml                                                      ingress.extensions/hello-world-ingress created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl create namespace cert-manager
+namespace/cert-manager created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f https://github.com/jetstac                                                k/cert-manager/releases/download/v0.11.0/cert-manager.yaml --validate=false
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io created
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+namespace/cert-manager configured
+serviceaccount/cert-manager-cainjector created
+serviceaccount/cert-manager created
+serviceaccount/cert-manager-webhook created
+clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector created
+role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:auth-delegator created
+rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:webhook-authentication-reader created
+clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:webhook-requester created
+role.rbac.authorization.k8s.io/cert-manager:leaderelection created
+rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-leaderelection created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges created
+clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim created
+clusterrole.rbac.authorization.k8s.io/cert-manager-view created
+clusterrole.rbac.authorization.k8s.io/cert-manager-edit created
+service/cert-manager created
+service/cert-manager-webhook created
+deployment.apps/cert-manager-cainjector created
+deployment.apps/cert-manager created
+deployment.apps/cert-manager-webhook created
+apiservice.apiregistration.k8s.io/v1beta1.webhook.cert-manager.io created
+mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml                                                       Error from server (InternalError): error when creating "cluster-issuer.yaml": Internal error occurred: failed calling w                                                ebhook "webhook.cert-manager.io": the server is currently unable to handle the request
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+Error from server (InternalError): error when creating "cluster-issuer.yaml": Internal error occurred: failed calling w                                                ebhook "webhook.cert-manager.io": the server is currently unable to handle the request
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-issuer.yaml
+clusterissuer.cert-manager.io/letsencrypt-staging created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f certificates.yaml
+certificate.cert-manager.io/tanvir14-eastus-cloudapp-azure-com-cert-staging created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml                                                      ingress.extensions/hello-world-ingress unchanged
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f cluster-ingress.yaml
+ingress.extensions/hello-world-ingress unchanged
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl create namespace app-dev
+namespace/app-dev created
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl apply -f kube-dashboard-access.yaml                                                clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard unchanged
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl getpod -n app-dev
+Error: unknown command "getpod" for "kubectl"
+Run 'kubectl --help' for usage.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl getpods -n app-dev
+Error: unknown command "getpods" for "kubectl"
+Run 'kubectl --help' for usage.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl get pod -n app-dev
+NAME                                       READY   STATUS         RESTARTS   AGE
+aks-hellonode-deployment-9557667c6-v56g2   0/1     ErrImagePull   0          3m20s
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl describe
+error: You must specify the type of resource to describe. Use "kubectl api-resources" for a complete list of supported                                                 resources.
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl describe pod aks-hellonode-deployme                                                nt-9557667c6-v56g2
+Error from server (NotFound): pods "aks-hellonode-deployment-9557667c6-v56g2" not found
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl describe pod aks-hellonode-deployme                                                nt-9557667c6-v56g2 -n app-dev
+Name:           aks-hellonode-deployment-9557667c6-v56g2
+Namespace:      app-dev
+Priority:       0
+Node:           aks-agentpool-42383454-vmss000000/10.240.0.4
+Start Time:     Sat, 15 Feb 2020 03:15:40 +0600
+Labels:         app.kubernetes.io/instance=app-dev
+                app.kubernetes.io/managed-by=azure-devops
+                app.kubernetes.io/name=aks-hellonode
+                app.kubernetes.io/part-of=aks-services
+                app.kubernetes.io/version=20200214.8
+                pod-template-hash=9557667c6
+Annotations:    <none>
+Status:         Pending
+IP:             10.240.0.7
+IPs:            <none>
+Controlled By:  ReplicaSet/aks-hellonode-deployment-9557667c6
+Containers:
+  aks-hellonode:
+    Container ID:
+    Image:          tanvir14.azurecr.io/aks-hellonode:20200214.8
+    Image ID:
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      ASPNETCORE_ENVIRONMENT:  Development
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xjsj9 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-xjsj9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-xjsj9
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason     Age                    From                                        Message
+  ----     ------     ----                   ----                                        -------
+  Normal   Scheduled  4m50s                  default-scheduler                           Successfully assigned app-dev/                                                aks-hellonode-deployment-9557667c6-v56g2 to aks-agentpool-42383454-vmss000000
+  Normal   Pulling    3m21s (x4 over 4m48s)  kubelet, aks-agentpool-42383454-vmss000000  Pulling image "tanvir14.azurec                                                r.io/aks-hellonode:20200214.8"
+  Warning  Failed     3m21s (x4 over 4m48s)  kubelet, aks-agentpool-42383454-vmss000000  Failed to pull image "tanvir14                                                .azurecr.io/aks-hellonode:20200214.8": [rpc error: code = Unknown desc = Error response from daemon: manifest for tanvi                                                r14.azurecr.io/aks-hellonode:20200214.8 not found: manifest unknown: manifest unknown, rpc error: code = Unknown desc =                                                 Error response from daemon: Get https://tanvir14.azurecr.io/v2/aks-hellonode/manifests/20200214.8: unauthorized: authe                                                ntication required]
+  Warning  Failed     3m21s (x4 over 4m48s)  kubelet, aks-agentpool-42383454-vmss000000  Error: ErrImagePull
+  Normal   BackOff    3m9s (x6 over 4m47s)   kubelet, aks-agentpool-42383454-vmss000000  Back-off pulling image "tanvir                                                14.azurecr.io/aks-hellonode:20200214.8"
+  Warning  Failed     2m54s (x7 over 4m47s)  kubelet, aks-agentpool-42383454-vmss000000  Error: ImagePullBackOff                                                       nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ az aks update-credentials \
+>     --resource-group tanvir14 \
+>     --name kb-test \
+>     --reset-service-principal \
+>     --service-principal 5de0fb06-e325-4d28-8142-b4816a096b0e \
+>     --client-secret 3d120f05-1dd6-42c5-8fda-9ac2e5d98619
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl get pod -n app-dev
+NAME                                       READY   STATUS             RESTARTS   AGE
+aks-hellonode-deployment-9557667c6-v56g2   0/1     ImagePullBackOff   0          12m
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ kubectl describe pod aks-hellonode-deployme                                                nt-9557667c6-v56g2 -n app-dev
+Name:           aks-hellonode-deployment-9557667c6-v56g2
+Namespace:      app-dev
+Priority:       0
+Node:           aks-agentpool-42383454-vmss000000/10.240.0.4
+Start Time:     Sat, 15 Feb 2020 03:15:40 +0600
+Labels:         app.kubernetes.io/instance=app-dev
+                app.kubernetes.io/managed-by=azure-devops
+                app.kubernetes.io/name=aks-hellonode
+                app.kubernetes.io/part-of=aks-services
+                app.kubernetes.io/version=20200214.8
+                pod-template-hash=9557667c6
+Annotations:    <none>
+Status:         Pending
+IP:             10.240.0.7
+IPs:            <none>
+Controlled By:  ReplicaSet/aks-hellonode-deployment-9557667c6
+Containers:
+  aks-hellonode:
+    Container ID:
+    Image:          tanvir14.azurecr.io/aks-hellonode:20200214.8
+    Image ID:
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      ASPNETCORE_ENVIRONMENT:  Development
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xjsj9 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-xjsj9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-xjsj9
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason     Age                    From                                        Message
+  ----     ------     ----                   ----                                        -------
+  Normal   Scheduled  12m                    default-scheduler                           Successfully assigned app-dev/aks-hellonode-deployment-9557667c6-v56g2 to aks-agentpool-42383454-vmss000000
+  Normal   Pulling    11m (x4 over 12m)      kubelet, aks-agentpool-42383454-vmss000000  Pulling image "tanvir14.azurecr.io/aks-hellonode:20200214.8"
+  Warning  Failed     11m (x4 over 12m)      kubelet, aks-agentpool-42383454-vmss000000  Failed to pull image "tanvir14.azurecr.io/aks-hellonode:20200214.8": [rpc error: code = Unknown desc = Error response from daemon: manifest for tanvir14.azurecr.io/aks-hellonode:20200214.8 not found: manifest unknown: manifest unknown, rpc error: code = Unknown desc = Error response from daemon: Get https://tanvir14.azurecr.io/v2/aks-hellonode/manifests/20200214.8: unauthorized: authentication required]        Warning  Failed     11m (x4 over 12m)      kubelet, aks-agentpool-42383454-vmss000000  Error: ErrImagePull
+  Normal   BackOff    11m (x6 over 12m)      kubelet, aks-agentpool-42383454-vmss000000  Back-off pulling image "tanvir14.azurecr.io/aks-hellonode:20200214.8"
+  Warning  Failed     7m33s (x21 over 12m)   kubelet, aks-agentpool-42383454-vmss000000  Error: ImagePullBackOff
+  Normal   Pulling    2m46s (x4 over 4m12s)  kubelet, aks-agentpool-42383454-vmss000000  Pulling image "tanvir14.azurecr.io/aks-hellonode:20200214.8"
+  Warning  Failed     2m45s (x4 over 4m12s)  kubelet, aks-agentpool-42383454-vmss000000  Failed to pull image "tanvir14.azurecr.io/aks-hellonode:20200214.8": [rpc error: code = Unknown desc = Error response from daemon: manifest for tanvir14.azurecr.io/aks-hellonode:20200214.8 not found: manifest unknown: manifest unknown, rpc error: code = Unknown desc = Error response from daemon: Get https://tanvir14.azurecr.io/v2/aks-hellonode/manifests/20200214.8: unauthorized: authentication required]        Warning  Failed     2m45s (x4 over 4m12s)  kubelet, aks-agentpool-42383454-vmss000000  Error: ErrImagePull
+  Normal   BackOff    2m31s (x6 over 4m12s)  kubelet, aks-agentpool-42383454-vmss000000  Back-off pulling image "tanvir14.azurecr.io/aks-hellonode:20200214.8"
+  Warning  Failed     2m17s (x7 over 4m12s)  kubelet, aks-agentpool-42383454-vmss000000  Error: ImagePullBackOff
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$ ^C
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ az aks list --resource-group tanvir14
+[
+  {
+    "aadProfile": null,
+    "addonProfiles": {
+      "httpApplicationRouting": {
+        "config": null,
+        "enabled": false,
+        "identity": null
+      },
+      "omsagent": {
+        "config": {
+          "logAnalyticsWorkspaceResourceID": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-7e862db6-4127-4495-a522-d82071ca3931-eus"
+        },
+        "enabled": true,
+        "identity": null
+      }
+    },
+    "agentPoolProfiles": [
+      {
+        "availabilityZones": null,
+        "count": 1,
+        "enableAutoScaling": null,
+        "enableNodePublicIp": null,
+        "maxCount": null,
+        "maxPods": 30,
+        "minCount": null,
+        "name": "agentpool",
+        "nodeLabels": null,
+        "nodeTaints": null,
+        "orchestratorVersion": "1.14.8",
+        "osDiskSizeGb": 100,
+        "osType": "Linux",
+        "provisioningState": "Succeeded",
+        "scaleSetEvictionPolicy": null,
+        "scaleSetPriority": null,
+        "tags": null,
+        "type": "VirtualMachineScaleSets",
+        "vmSize": "Standard_B2s",
+        "vnetSubnetId": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/tanvir14/providers/Microsoft.Network/virtualNetworks/tanvir14-vnet/subnets/default"
+      }
+    ],
+    "apiServerAccessProfile": null,
+    "dnsPrefix": "kb-test-dns",
+    "enablePodSecurityPolicy": null,
+    "enableRbac": true,
+    "fqdn": "kb-test-dns-45d0a6ac.hcp.eastus.azmk8s.io",
+    "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourcegroups/tanvir14/providers/Microsoft.ContainerService/managedClusters/kb-test",
+    "identity": null,
+    "identityProfile": null,
+    "kubernetesVersion": "1.14.8",
+    "linuxProfile": null,
+    "location": "eastus",
+    "maxAgentPools": 8,
+    "name": "kb-test",
+    "networkProfile": {
+      "dnsServiceIp": "10.0.0.10",
+      "dockerBridgeCidr": "172.17.0.1/16",
+      "loadBalancerProfile": {
+        "allocatedOutboundPorts": null,
+        "effectiveOutboundIps": [
+          {
+            "id": "/subscriptions/7e862db6-4127-4495-a522-d82071ca3931/resourceGroups/MC_tanvir14_kb-test_eastus/providers/Microsoft.Network/publicIPAddresses/7e01ba99-b28b-4476-b9ca-b30fbb610dcb",
+            "resourceGroup": "MC_tanvir14_kb-test_eastus"
+          }
+        ],
+        "idleTimeoutInMinutes": null,
+        "managedOutboundIps": {
+          "count": 1
+        },
+        "outboundIpPrefixes": null,
+        "outboundIps": null
+      },
+      "loadBalancerSku": "Standard",
+      "networkPlugin": "azure",
+      "networkPolicy": null,
+      "outboundType": "loadBalancer",
+      "podCidr": null,
+      "serviceCidr": "10.0.0.0/16"
+    },
+    "nodeResourceGroup": "MC_tanvir14_kb-test_eastus",
+    "privateFqdn": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "tanvir14",
+    "servicePrincipalProfile": {
+      "clientId": "5de0fb06-e325-4d28-8142-b4816a096b0e"
+    },
+    "type": "Microsoft.ContainerService/ManagedClusters",
+    "windowsProfile": null
+  }
+]
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ kubectl delete pod aks-hellonode-deployment-9557667c6-v56g2
+Error from server (NotFound): pods "aks-hellonode-deployment-9557667c6-v56g2" not found
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ kubectl delete pod aks-hellonode-deployment-9557667c6-v56g2 -n app-dev
+pod "aks-hellonode-deployment-9557667c6-v56g2" deleted
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ kubectl get pod -n app-dev
+NAME                                       READY   STATUS             RESTARTS   AGE
+aks-hellonode-deployment-9557667c6-b6x5z   0/1     ImagePullBackOff   0          19s
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ kubectl get pod -n app-dev
+NAME                                        READY   STATUS         RESTARTS   AGE
+aks-hellonode-deployment-5566465884-vrf77   1/1     Running        0          20s
+aks-hellonode-deployment-9557667c6-b6x5z    0/1     ErrImagePull   0          11m
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$ kubectl get pod -n app-dev
+NAME                                        READY   STATUS    RESTARTS   AGE
+aks-hellonode-deployment-5566465884-vrf77   1/1     Running   0          35s
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS$
+nies14@LAPTOP-MEQ0ES9L:/mnt/c/Users/ASUS/Desktop/Kubernets-Workshop-3/Kube$
