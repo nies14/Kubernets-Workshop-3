@@ -78,7 +78,7 @@ spec:
   #- app-staging.informatiq.no
   #    secretName: app-staging-informatiq-no-cert-prod
   rules:
-    - host: tanvir14.eastus.cloudapp.azure.com
+    - host: tanvir14.eastus2.cloudapp.azure.com
       http:
         paths:
           - path: /
