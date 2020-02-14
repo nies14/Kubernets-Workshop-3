@@ -6,13 +6,13 @@ metadata:
 spec:
   secretName: tanvir14-eastus-cloudapp-azure-com-staging
   dnsNames:
-  - tanvir14.eastus2.cloudapp.azure.com
+  - tanvir14.eastus.cloudapp.azure.com
   acme:
     config:
     - http01:
         ingressClass: nginx
       domains:
-      - tanvir14.eastus2.cloudapp.azure.com
+      - tanvir14.eastus.cloudapp.azure.com
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer  
